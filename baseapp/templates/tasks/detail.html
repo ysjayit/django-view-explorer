@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">{{ task.title }}</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Status</strong> - {{ task.status }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Tag</strong> - {{ task.tag }}
+                </li>
+            </ul>
+            <div class="card-footer">
+                <a href="{% url 'task-update' task.id %}" class="btn btn-primary">Update</a>
+                <a href="{% url 'task-delete' task.id %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'task-list' %}" class="btn btn-success">Back to Task List</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

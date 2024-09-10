@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">{{ object.title }}</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Reminder time</strong> - {{ object.reminder_time|date:'Y-m-d H:i' }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Is notified</strong> - {{ object.is_notified|yesno:"Yes,No,None" }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Created at</strong> - {{ object.created_at|date:'Y-m-d H:i' }}
+                </li>
+            </ul>
+            <div class="card-footer">
+                <a href="{% url 'reminder-update' object.pk %}" class="btn btn-primary">Update</a>
+                <a href="{% url 'reminder-delete' object.pk %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'reminder-list' %}" class="btn btn-success">Back to Reminder List</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

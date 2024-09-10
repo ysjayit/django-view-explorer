@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <div class="card mb-2">
+            <div class="card-body">
+                <a href="{% url 'task-create' %}" type="button" class="btn btn-primary">Create</a>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead class="table-primary">
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Tag</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                    <tr>
+                        <td>{{ task.id }}</td>
+                        <td>{{ task.title }}</td>
+                        <td>{{ task.status }}</td>
+                        <td>{{ task.tag }}</td>
+                        <td>
+                            <a href="{% url 'task-detail' task.id %}" type="button" class="btn btn-success">View</a>
+                            <a href="{% url 'task-update' task.id %}" type="button" class="btn btn-primary">Update</a>
+                            <a href="{% url 'task-delete' task.id %}" type="button" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

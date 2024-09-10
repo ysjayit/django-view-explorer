@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <div class="card mb-2">
+            <div class="card-body">
+                <a href="{% url 'tag-create' %}" type="button" class="btn btn-primary">Create</a>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead class="table-primary">
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Colour</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tag in tags %}
+                    <tr>
+                        <td>{{ tag.id }}</td>
+                        <td>{{ tag.name }}</td>
+                        <td>{{ tag.colour|lower }}</td>
+                        <td>
+                            <a href="{% url 'tag-update' tag.id %}" type="button" class="btn btn-primary">Update</a>
+                            <a href="{% url 'tag-delete' tag.id %}" type="button" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
