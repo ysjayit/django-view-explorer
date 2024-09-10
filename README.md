@@ -10,8 +10,8 @@ Django View Explorer is a project designed to explore and demonstrate various Dj
 
 1. **Clone the Repository**:
 ```shell
-git clone https://github.com/ysjayit/django-custom-user-management-app.git
-cd django-custom-user-management-app
+git clone https://github.com/ysjayit/django-view-explorer.git
+cd django-view-explorer
 ```
 2. **Create and Activate a Virtual Environment (optional but recommended)**:
 If virtualenv is not installed yet, you can install it via pip:
